@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Android/Activity.md",
+                "file": "数据库/SQL.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Activity"
+              "title": "SQL"
             }
           }
         ]
@@ -71,7 +71,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 266.5
+    "width": 291.5
   },
   "right": {
     "id": "2ec678cf7e211286",
@@ -88,13 +88,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Android/Android知识点汇总.md",
+                "file": "数据库/SQL.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Android知识点汇总 的大纲"
+              "title": "SQL 的大纲"
             }
           },
           {
@@ -130,14 +130,24 @@
               "icon": "spreadsheet",
               "title": "Advanced Tables"
             }
+          },
+          {
+            "id": "645f326bd654bfcb",
+            "type": "leaf",
+            "state": {
+              "type": "git-view",
+              "state": {},
+              "icon": "git-pull-request",
+              "title": "Source Control"
+            }
           }
         ],
-        "currentTab": 3
+        "currentTab": 4
       },
       {
         "id": "643ae1aa261f0f1f",
         "type": "tabs",
-        "dimension": 26.666666666666668,
+        "dimension": 26.66666666666667,
         "children": [
           {
             "id": "84db9c06c5e79f75",
@@ -218,8 +228,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 313.5,
-    "collapsed": true
+    "width": 360.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -234,19 +243,24 @@
       "table-editor-obsidian:Advanced Tables Toolbar": false,
       "obsidian-excalidraw-plugin:新建绘图文件": false,
       "oz-clear-unused-images:Clear Unused Images": false,
-      "copilot:Open Copilot Chat": false
+      "obsidian-git:Open Git source control": false
     }
   },
   "active": "a25cba79b36869a8",
   "lastOpenFiles": [
-    "Android/Android开源库源码分析.md",
+    "未命名 1.canvas",
+    "未命名.canvas",
+    "Android/控件.md",
     "Android/Android知识点汇总.md",
     "Android/Android扩展知识点.md",
-    "Android/Framework知识点汇总.md",
+    "Android/Android基础/图片缓存原理.md",
+    "Android/权限机制.md",
+    "Android/清单文件.md",
+    "Android/音视频知识点汇总.md",
     "Android/Activity.md",
-    "未命名.canvas",
+    "Android/Android开源库源码分析.md",
+    "Android/Framework知识点汇总.md",
     "Android/Intent操作.md",
-    "Android/控件.md",
     "数据库/数据库笔记.md",
     "语言/Cpp/OOP(C++)考前复习.md",
     "Excalidraw/Drawing 2025-05-04 19.09.11.excalidraw.md",
@@ -261,10 +275,6 @@
     "Android/ReactNative相关/短信验证码倒计时控件.md",
     "Android/ReactNative相关/Touchable系列组建讲解.md",
     "Android/ReactNative相关/ReactNative调试心得.md",
-    "Android/ReactNative相关/ReactNative报错记录.md",
-    "Android/ReactNative相关/ReactNative利用CodePush实现热更新.md",
-    "Android/ReactNative相关/ReactNative入门.md",
-    "Android/ReactNative相关/React Native 的ES5 ES6写法对照表.md",
     "Android/ReactNative相关",
     "语言/Java/黑马讲义/day13-单元测试、反射、注解、动态代理/assets/1669622605490.png",
     "语言/Java/黑马讲义/day13-单元测试、反射、注解、动态代理/assets/1669622545712.png",
@@ -287,7 +297,6 @@
     "语言/Java/黑马讲义/day08-Java常用API/assets",
     "04_复试/02_人工智能/05_论文/未命名.canvas",
     "03_专业/04_计算机网络/未命名.canvas",
-    "未命名 1.canvas",
     "9. 考研相关/4. 计算机/2. 操作系统/0. 其他/初见/总纲.canvas",
     "9. 考研相关/3. 数学/5. 公式/1. 常用求极限公式.canvas",
     "9. 考研相关/4. 计算机/1. 数据结构/0. 其他/初见/DS - 2.canvas",

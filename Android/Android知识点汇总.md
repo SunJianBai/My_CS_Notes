@@ -2,11 +2,13 @@
 
 
 
-# Android项目总体介绍
+# Android工程项目结构
 
-![image-20250326101858688](Android%E7%9F%A5%E8%AF%86%E7%82%B9%E6%B1%87%E6%80%BB.assets/image-20250326101858688.png)
 
-![image-20250326102247774](Android%E7%9F%A5%E8%AF%86%E7%82%B9%E6%B1%87%E6%80%BB.assets/image-20250326102247774.png)
+
+
+
+
 
 # Activity
 

@@ -31,7 +31,7 @@
 
  　　running的时候被覆盖了（从它打开了新的activity或是被锁屏，但是它**依然在前台**运行， lost focus but is still visible），系统调用onPause();
 
- 
+
 >　该方法执行activity暂停，通常用于提交未保存的更改到持久化数据，停止动画和其他的东西。但这个activity还是完全活着（它保持所有的状态和成员信息，并保持连接到**窗口管理器**）
 
 接下来它有三条出路
@@ -53,9 +53,9 @@
 　
 
  - activity的完整生存期会在 onCreate() 调用和 onDestroy() 调用之间发生。　
- 
+
  - activity的可见生存期会在 onStart() 调用和 onStop() 调用之间发生。系统会在activity的整个生存期内多次调用 onStart() 和onStop()， 因为activity可能会在显示和隐藏之间不断地来回切换。　
- 
+
  - activity的前后台切换会在 onResume() 调用和 onPause() 之间发生。
  因为这个状态可能会经常发生转换，为了避免切换迟缓引起的用户等待，这两个方法中的代码应该相当地轻量化。
 
@@ -111,7 +111,7 @@ protected void onRestoreInstanceState(Bundle savedInstanceState) {
 # 启动模式
 
 ## 启动模式什么？
-　　
+
 　　简单的说就是定义activity 实例与task 的关联方式。
 　　
 ## 为什么要定义启动模式？ 
@@ -120,9 +120,9 @@ protected void onRestoreInstanceState(Bundle savedInstanceState) {
 　　 
 
  - 让某个 activity 启动一个新的 task （而不是被放入当前 task ）
- 
+
  - 让 activity 启动时只是调出已有的某个实例（而不是在 back stack 顶创建一个新的实例）　
- 
+
  - 或者，你想在用户离开 task 时只保留根 activity，而 back stack 中的其它 activity 都要清空
 
 ##怎样定义启动模式？
@@ -146,17 +146,17 @@ protected void onRestoreInstanceState(Bundle savedInstanceState) {
 
 > 注意： 你用 launchMode 属性为 activity 设置的模式可以被启动 activity 的 intent 标志所覆盖。
 
-####有哪些启动模式？
+#### 有哪些启动模式？
 
 
  - "standard" （默认模式）　
- 
+
 　　当通过这种模式来启动Activity时,　Android总会为目标 Activity创建一个新的实例,并将该Activity添加到当前Task栈中。这种方式不会启动新的Task,只是将新的 Activity添加到原有的Task中。　
 　　
  - "singleTop"　
- 
+
  　　该模式和standard模式基本一致,但有一点不同:当将要被启动的Activity已经位于Task栈顶时,系统不会重新创建目标Activity实例,而是直接复用Task栈顶的Activity。
- 
+
  - "singleTask"
 
 　　Activity在同一个Task内只有一个实例。
@@ -298,7 +298,7 @@ android:exported="false" />
  - 在匿名内部类中使用this时加上activity类名（类名.this,不一定是当前activity）
 
  - 设置activity全屏
- 
+
   　　在其 onCreate()方法中加入：
 
 ```
@@ -314,7 +314,7 @@ android:exported="false" />
 
 　　
 
-　　
+
 　　
   　　
 

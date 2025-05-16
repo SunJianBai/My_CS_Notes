@@ -1,6 +1,6 @@
 
 ## 1、概述
-  
+
 
  　　Android提供了5种方式来让用户保存持久化应用程序数据。根据自己的需求来做选择，比如数据是否是应用程序私有的，是否能被其他程序访问，需要多少数据存储空间等，分别是：　
  　　
@@ -74,7 +74,7 @@ Context.MODE_MULTI_PROCESS
 
 最后调用Editor的commit()方法提交；
 
-```
+```kotlin
 //Use 0 or MODE_PRIVATE for the default operation 
 SharedPreferences settings = getSharedPreferences("fanrunqi", 0);
 SharedPreferences.Editor editor = settings.edit();
@@ -93,7 +93,7 @@ editor.commit();
 
 　　读取值使用 SharedPreference对象的getBoolean()或getString()等方法就行了（没Editor 啥子事）。
 
-```
+```kotlin
 SharedPreferences settings = getSharedPreferences("fanrunqi", 0);
 boolean isAmazing= settings.getBoolean("isAmazing",true);
 ```
@@ -123,7 +123,7 @@ boolean isAmazing= settings.getBoolean("isAmazing",true);
 
 例如：
 
-```
+```kotlin
 		String FILENAME = "a.txt";
 		String string = "fanrunqi";
 
@@ -137,11 +137,11 @@ boolean isAmazing= settings.getBoolean("isAmazing",true);
 ```
 
 在 ``openFileOutput(String name, int mode)``方法中
- 
+
 
  - name参数:　用于指定文件名称，不能包含路径分隔符“/” ，如果文件不存在，Android 会自动创建它。
- 
- 
+
+
  - mode参数：用于指定操作模式，分为四种：
 
 > Context.MODE_PRIVATE = 0
@@ -170,7 +170,7 @@ boolean isAmazing= settings.getBoolean("isAmazing",true);
 
 例如：
 
-```
+```kotlin
 	String FILENAME = "a.txt";
 		try {
             FileInputStream inStream = openFileInput(FILENAME);
@@ -197,12 +197,12 @@ boolean isAmazing= settings.getBoolean("isAmazing",true);
 
 
 
-　　
+
 ### 3.1.３　保存编译时的静态文件
 
 　　如果你想在应用编译时保存静态文件，应该把文件保存在项目的　**res/raw/**　目录下，你可以通过 openRawResource()方法去打开它（传入参数R.raw.filename），这个方法返回一个 InputStream流对象你可以读取文件但是不能修改原始文件。
 
-```
+```kotlin
 InputStream is = this.getResources().openRawResource(R.raw.filename);
 ```
 
@@ -218,10 +218,10 @@ InputStream is = this.getResources().openRawResource(R.raw.filename);
 　　因为内部存储容量限制，有时候需要存储数据比较大的时候需要用到外部存储，使用外部存储分为以下几个步骤：
 
 ### 3.2.1　添加外部存储访问限权
-　
+
 　　首先，要在AndroidManifest.xml中加入访问SDCard的权限，如下:
 
-```
+```kotlin
 　<!-- 在SDCard中创建与删除文件权限 --> 
     <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/> 
 
@@ -233,7 +233,7 @@ InputStream is = this.getResources().openRawResource(R.raw.filename);
 
 　　在使用外部存储时我们需要检测其状态，它可能被连接到计算机、丢失或者只读等。下面代码将说明如何检查状态：
 
-```
+```kotlin
 //获取外存储的状态
 String state = Environment.getExternalStorageState();
 if (Environment.MEDIA_MOUNTED.equals(state)) {
@@ -247,7 +247,7 @@ if (Environment.MEDIA_MOUNTED.equals(state)) {
 ```
 
 ### 3.2.3　访问外部存储器中的文件
-　
+
 
 **１、如果 API 版本大于或等于８**，使用
 
@@ -256,7 +256,7 @@ if (Environment.MEDIA_MOUNTED.equals(state)) {
 　　该方法打开一个外存储目录，此方法需要一个类型，指定你想要的子目录，如类型参数DIRECTORY_MUSIC和 DIRECTORY_RINGTONES（传null就是你应用程序的文件目录的根目录）。通过指定目录的类型，确保Android的媒体扫描仪将扫描分类系统中的文件（例如，铃声被确定为铃声）。如果用户卸载应用程序，这个目录及其所有内容将被删除。
 
 例如：
-```
+```kotlin
 File file = new File(getExternalFilesDir(null), "fanrunqi.jpg");
 ```
 
@@ -274,7 +274,7 @@ File file = new File(getExternalFilesDir(null), "fanrunqi.jpg");
 
 读写数据：
 
-```
+```kotlin
 if(Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED)){  
 		    File sdCardDir = Environment.getExternalStorageDirectory();//获取SDCard目录  "/sdcard"        
 
@@ -303,14 +303,14 @@ if(Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED)){
 					e.printStackTrace();
 				}  
 		}
-``` 
+```
 
 　　我们也可以在　/Android/data/package_name/cache/目录下做外部缓存。
 
 部分翻译于：[android-data-storage](http://www.android-doc.com/guide/topics/data/data-storage.html)
 
 # ４、 网络存储数据
- 
+
 ## HttpUrlConnection
 
  　　HttpUrlConnection是Java.net包中提供的API，我们知道Android SDK是基于Java的，所以当然优先考虑HttpUrlConnection这种最原始最基本的API，其实大多数开源的联网框架基本上也是基于JDK的HttpUrlConnection进行的封装罢了，掌握HttpUrlConnection需要以下几个步骤：
@@ -324,14 +324,14 @@ if(Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED)){
  
 
 > HttpURLConnection conn = (HttpURLConnection) url.openConnection();
- 
+
 
 3、设置请求方式。
 
  
 
 > conn.setRequestMethod(GET);
- 
+
 
 4、设置连接超时时间。
 
@@ -347,7 +347,7 @@ if(Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED)){
 
 工具类：
 
-```
+```kotlin
 public class StreamTools {
 	/**
 	 * 将输入流转换成字符串
@@ -378,7 +378,7 @@ public class StreamTools {
 
 ### HttpUrlConnection发送GET请求
 
-```
+```kotlin
 public static String loginByGet(String username, String password) {
 		String path = http://192.168.0.107:8080/WebTest/LoginServerlet?username= + username + &password= + password;
 		try {
@@ -402,7 +402,7 @@ public static String loginByGet(String username, String password) {
 
 ### HttpUrlConnection发送POST请求
 
-```
+```kotlin
 public static String loginByPost(String username, String password) {
 		String path = http://192.168.0.107:8080/WebTest/LoginServerlet;
 		try {
@@ -447,7 +447,7 @@ public static String loginByPost(String username, String password) {
 
 5、调用的HttpResponse的getEntity().getContent()得到输入流，获取服务端写回的数据
 
-```
+```kotlin
 public static String loginByHttpClientGet(String username, String password) {
 		String path = http://192.168.0.107:8080/WebTest/LoginServerlet?username=
 				+ username + &password= + password;
@@ -486,7 +486,7 @@ public static String loginByHttpClientGet(String username, String password) {
 
 7， 调用的HttpResponse的getEntity().getContent()得到输入流，获取服务端写回的数据
 
-```
+```kotlin
 public static String loginByHttpClientPOST(String username, String password) {
 		String path = http://192.168.0.107:8080/WebTest/LoginServerlet;
 		try {
@@ -511,7 +511,7 @@ public static String loginByHttpClientPOST(String username, String password) {
 			return 访问网络失败;
 		}
 	}
-``` 
+```
 
 参考：
 
@@ -528,10 +528,9 @@ public static String loginByHttpClientPOST(String username, String password) {
 
 [okhttp](https://github.com/square/okhttp)
 
-
 # ５、 SQLite数据库存储数据
 
-　　
+
 　　前面的文章[ SQLite的使用入门](http://blog.csdn.net/amazing7/article/details/51375012)已经做了详细说明，这里就不在多说了。
 
 

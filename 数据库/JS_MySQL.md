@@ -208,6 +208,7 @@ const data = fs.readFileSync('data.json');
 ```
 
 #### Q3：如何调试代码？
+
 使用 `print()` 或 `console.log()` 输出变量：
 ```javascript
 const result = await session.sql("SELECT NOW()").execute();
@@ -222,4 +223,3 @@ console.log("当前时间:", result.fetchOne());
 - **操作 JSON 文档**（利用 X DevAPI）。
 - **编写脚本自动化管理数据库**。
 
-如果需要更复杂的逻辑（如循环、条件判断），可以结合 JavaScript 的完整语法实现灵活控制！ 😊

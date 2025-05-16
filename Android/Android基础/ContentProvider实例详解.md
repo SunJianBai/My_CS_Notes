@@ -11,13 +11,13 @@
  　　URL（统一资源标识符）代表要操作的数据，可以用来标识每个ContentProvider，这样你就可以通过指定的URI找到想要的ContentProvider,从中获取或修改数据。
  　　在Android中URI的格式如下图所示：
 
-![这里写图片描述](http://img.blog.csdn.net/20160505154322045)　
+
 
 
 　　
 
  - Ａ
-　
+
 　　　schema，已经由Android所规定为：content://．　
 　　　
  - Ｂ
@@ -49,7 +49,7 @@
 >  content://com.example.app.provider/table3/# 
 >  匹配table3的所有行
 
-　　
+
 ## 2.１MIME
 
  　　MIME是指定某个扩展名的文件用一种应用程序来打开，就像你用浏览器查看PDF格式的文件，浏览器会选择合适的应用来打开一样。Android中的工作方式跟HTTP类似，ContentProvider会根据URI来返回MIME类型，ContentProvider会返回一个包含两部分的字符串。MIME类型一般包含两部分，如：
@@ -139,7 +139,7 @@ matcher.addURI("cn.scu.myprovider", "user/#",USER_ID);
             return "vnd.android.cursor.item/user";  
         }  
     } 
-``` 
+```
 
 # 3.ContentProvider的主要方法
 
