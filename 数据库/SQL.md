@@ -493,8 +493,6 @@ ALTER TABLE tb_emp7 DROP CONSTRAINT check_id;
 
 默认值约束通常用在已经设置了非空约束的列，这样能够防止数据表在录入数据时出现错误。
 
- 
-
 **在创建表时设置默认值约束**
 
 ```mysql
@@ -508,8 +506,6 @@ location VARCHAR(50) DEFAULT 'Beijing'
 );
 ```
 
- 
-
 **在修改表时添加默认值约束**
 
 ```mysql
@@ -517,8 +513,6 @@ ALTER TABLE <数据表名> CHANGE COLUMN <字段名> <数据类型> DEFAULT <默
  
 ALTER TABLE tb_dept3 CHANGE COLUMN location VARCHAR(50) DEFAULT 'Shanghai';
 ```
-
- 
 
 **删除默认值约束**
 
@@ -2128,7 +2122,15 @@ create procedure myprocedure(out ret int)
  delimiter ;
 ```
 
-# 触发器
+# 触发器（Trigger）
+
+**触发器** 是一种由数据库自动执行的程序，用于在特定事件（如插入、删除、更新）发生时，自动执行一些指定的操作。常用于：
+
+- 自动检查约束（如你前面的问题）
+- 自动记录日志
+- 实现复杂的业务规则
+
+
 
 触发器会在某个表执行以下语句时而自动执行：DELETE、INSERT、UPDATE。
 
@@ -2148,6 +2150,139 @@ DELETE 触发器包含一个名为 OLD 的虚拟表，并且是只读的。
 UPDATE 触发器包含一个名为 NEW 和一个名为 OLD 的虚拟表，其中 NEW 是可以被修改的，而 OLD 是只读的。
 
 MySQL 不允许在触发器中使用 CALL 语句，也就是不能调用存储过程。
+
+
+
+```sql
+CREATE TRIGGER <触发器名>
+ {BEFORE|AFTER} <触发事件(INSERT|DELETE|UPDATE)> ON <表名>
+ FOR EACH {ROW | STATEMENT}
+ [WHEN <触发条件>]
+BEGIN
+    -- 触发器执行的 SQL 语句块
+END;
+```
+
+### ✅ 关键字解释：
+
+| 关键词                 | 作用说明                                           |
+| ---------------------- | -------------------------------------------------- |
+| `CREATE TRIGGER`       | 创建触发器                                         |
+| `trigger_name`         | 触发器名称（一个数据库中唯一）                     |
+| `BEFORE` 或 `AFTER`    | 指明是在操作 **之前** 还是 **之后** 执行           |
+| `INSERT/UPDATE/DELETE` | 指明要响应哪种类型的操作                           |
+| `ON table_name`        | 指定在哪个表上定义该触发器                         |
+| `FOR EACH ROW`         | 表示每插入/更新/删除一行记录，就执行一次触发器代码 |
+| `BEGIN...END`          | 包含触发器要执行的 SQL 语句块                      |
+
+------
+
+## 三、访问新旧数据
+
+在 `UPDATE` 或 `INSERT` 时，触发器中可以使用如下关键字访问行数据：
+
+| 关键字            | 含义                   |
+| ----------------- | ---------------------- |
+| `NEW.column_name` | 表示新插入或更新后的值 |
+| `OLD.column_name` | 表示被删除或更新前的值 |
+
+### 示例：
+
+```sql
+-- 更新工资时记录日志
+CREATE TRIGGER log_salary_change
+AFTER UPDATE ON employee
+FOR EACH ROW
+BEGIN
+    INSERT INTO salary_log(emp_id, old_salary, new_salary, change_date)
+    VALUES (OLD.id, OLD.salary, NEW.salary, NOW());
+END;
+```
+
+------
+
+## 四、触发器使用举例
+
+### 1. 插入前检查约束
+
+```sql
+CREATE TRIGGER check_age
+BEFORE INSERT ON users
+FOR EACH ROW
+BEGIN
+    IF NEW.age < 0 THEN
+        SIGNAL SQLSTATE '45000'
+        SET MESSAGE_TEXT = '年龄不能为负数';
+    END IF;
+END;
+```
+
+### 2. 自动记录删除操作
+
+```sql
+CREATE TRIGGER log_delete
+AFTER DELETE ON orders
+FOR EACH ROW
+BEGIN
+    INSERT INTO deleted_orders_log(order_id, delete_time)
+    VALUES (OLD.id, NOW());
+END;
+```
+
+------
+
+## 五、注意事项
+
+### 1. 不能使用事务控制语句
+
+触发器中 **不能使用 `COMMIT`、`ROLLBACK`、`SAVEPOINT`** 等语句。
+
+### 2. 每个表最多定义 6 个触发器（MySQL 中）：
+
+- BEFORE INSERT
+- AFTER INSERT
+- BEFORE UPDATE
+- AFTER UPDATE
+- BEFORE DELETE
+- AFTER DELETE
+
+### 3. `SIGNAL SQLSTATE` 用于触发错误并阻止操作（MySQL 5.5+）：
+
+```sql
+SIGNAL SQLSTATE '45000'
+SET MESSAGE_TEXT = '错误信息';
+```
+
+------
+
+## 六、小结
+
+| 类型          | 说明                                         |
+| ------------- | -------------------------------------------- |
+| BEFORE INSERT | 插入之前自动执行，常用于数据校验或默认值处理 |
+| AFTER INSERT  | 插入之后自动执行，常用于写日志等             |
+| BEFORE UPDATE | 更新之前执行，可检查或限制数据               |
+| AFTER UPDATE  | 更新后执行，常用于写日志、历史记录           |
+| BEFORE DELETE | 删除前检查                                   |
+| AFTER DELETE  | 删除后记录日志                               |
+
+------
+
+是否需要我给你写一个“完整的触发器模板”和带注释的示例？
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 # 事务管理
 
