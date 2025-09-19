@@ -1,11 +1,8 @@
-> 虽然以前也有一些git的基础，但是好久不用了，基本也都忘没了，而且以前用图形化界面的工具比较多，最近决定多用用命令行吧，感觉命令行还是挺好用的。
 
-最近在mac上面装了iterm2感觉挺好用的，还支持各种扩展，挺好的。[iterm2下载链接](http://www.iterm2.com/)
 
-----
-就不做什么过多的介绍了，github也这么多年了，还是不错的，而且今天打算记录的也是git的命令，等以后会用到更多的命令的时候也会更新这篇博客的。
 
-----
+
+## 常用git命令整理
 
 | 命令        | 含义           |
 | ------------- |:-------------:|
@@ -51,5 +48,14 @@ git push origin master
 git config --global user.name "youname"
 git config --global user.email "youeamil@email.com"
 ```
+
+
+
+
+
+
+
+
+
 
 

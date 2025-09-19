@@ -55,7 +55,7 @@
 
 
 \1.                                                       
- 关于const指针那些事![image-20250508142134671](https://cdn.jsdelivr.net/gh/SunJianBai/pictures@main/img/202505081421828.png)
+ 关于const指针那些事![image-20250508142134671](https://raw.githubusercontent.com/SunJianBai/pictures/main/img/202505081421828.png)
 
 \2.   面向对象的三个基本特征是封装、继承、和多态
 
@@ -187,7 +187,7 @@ OOP：
 
 ### Compile
 
-一张图看懂edit, compile, translate和link在从编写代码到程序执行这段时间所起的作用：![image-20250505163647208](https://cdn.jsdelivr.net/gh/SunJianBai/pictures@main/img/202505051636363.png)
+一张图看懂edit, compile, translate和link在从编写代码到程序执行这段时间所起的作用：![image-20250505163647208](https://raw.githubusercontent.com/SunJianBai/pictures/main/img/202505051636363.png)
 
 
 
@@ -207,13 +207,13 @@ declaration和definition既可以同步进行也可以先declaration再definitio
 
 只需告诉Linker .obj的的名字和可执行文件的名字，他就可以工作
 
-<img src="https://cdn.jsdelivr.net/gh/SunJianBai/pictures@main/img/202505051636176.png" alt="image-20250505163658074" style="zoom:33%;" />
+<img src="https://raw.githubusercontent.com/SunJianBai/pictures/main/img/202505051636176.png" alt="image-20250505163658074" style="zoom:33%;" />
 
 ### 使用iostream、string、vector类
 
 iostream类图：
 
-<img src="https://cdn.jsdelivr.net/gh/SunJianBai/pictures@main/img/202505051637935.png" alt="image-20250505163706853" style="zoom:33%;" />
+<img src="https://raw.githubusercontent.com/SunJianBai/pictures/main/img/202505051637935.png" alt="image-20250505163706853" style="zoom:33%;" />
 
 ### C++中的C语法
 

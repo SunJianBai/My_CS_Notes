@@ -22,13 +22,13 @@ public class Activity {
 }
 ```
 
-![image-20250330101147888](https://cdn.jsdelivr.net/gh/SunJianBai/pictures@main/img/202504201922212.png)
+![image-20250330101147888](https://raw.githubusercontent.com/SunJianBai/pictures/main/img/202504201922212.png)
 
 不同的生命周期方法，通常承担不同的任务，如果把特定的任务分派给了不合适的生命周期方法，可能会引入隐藏的BUG。
 
 ![image-20250330101218078](Android%E7%9F%A5%E8%AF%86%E7%82%B9%E6%B1%87%E6%80%BB.assets/image-20250330101218078.png)
 
-![image-20250330101256657](https://cdn.jsdelivr.net/gh/SunJianBai/pictures@main/img/202504201922239.png)
+![image-20250330101256657](https://raw.githubusercontent.com/SunJianBai/pictures/main/img/202504201922239.png)
 
 - Activity A 启动另一个Activity B，回调如下:  
   Activity A 的onPause() 
@@ -134,7 +134,7 @@ class OtherActivity : AppCompatActivity() {
 
 App初启时，在Logcat面板中可以看到，onStart方法和onResume方法被先后调用，现在App可以响应用户操作。
 
-![image-20250330170004199](https://cdn.jsdelivr.net/gh/SunJianBai/pictures@main/img/202504201922215.png)
+![image-20250330170004199](https://raw.githubusercontent.com/SunJianBai/pictures/main/img/202504201922215.png)
 
 此时点击“显示另一个Activity”按钮，新的Activity（OtherActivity）出现在屏幕上，这时，在Logcat中可以看到以下输出：
 
@@ -273,11 +273,11 @@ private Activity performLaunchActivity(ActivityClientRecord r, Intent customInte
 
 ## 创建新Activity
 
-### 创建布局文件![image-20250418233744884](https://cdn.jsdelivr.net/gh/SunJianBai/pictures@main/img/202504182337049.png)
+### 创建布局文件![image-20250418233744884](https://raw.githubusercontent.com/SunJianBai/pictures/main/img/202504182337049.png)
 
 ### 创建Activity类
 
-创建一个新类，派生自Activity，重写其onCreate方法：![image-20250420192709248](https://cdn.jsdelivr.net/gh/SunJianBai/pictures@main/img/202504201927320.png)
+创建一个新类，派生自Activity，重写其onCreate方法：![image-20250420192709248](https://raw.githubusercontent.com/SunJianBai/pictures/main/img/202504201927320.png)
 
 注意一下，为了实现兼容性，自定义Activity的基类是AppCompatActivity，它拥有复杂的继承体系，其中在“很远”的地方，你可以找到一个名为“Activity”的“祖先”。
 
@@ -287,7 +287,7 @@ Activity被实例化时，onCreate()方法被回调，在此方法中将Activity
 
 修改AndroidManifest.xml，注册这个刚创建的Activity类
 
-![image-20250420192952225](https://cdn.jsdelivr.net/gh/SunJianBai/pictures@main/img/202504201929293.png)
+![image-20250420192952225](https://raw.githubusercontent.com/SunJianBai/pictures/main/img/202504201929293.png)
 
 > 所有的Activity，必须在清单文件中注册。
 
@@ -298,7 +298,7 @@ Activity被实例化时，onCreate()方法被回调，在此方法中将Activity
 
 
 
-修改主Activity界面，给其添加一个按钮![image-20250420193359906](https://cdn.jsdelivr.net/gh/SunJianBai/pictures@main/img/202504201933973.png)
+修改主Activity界面，给其添加一个按钮![image-20250420193359906](https://raw.githubusercontent.com/SunJianBai/pictures/main/img/202504201933973.png)
 
 ↑这是典型的启动 Acitivity 的代码
 在 `btnStartSecendAcitvity` 的事件监听器被触发时，创建一个 `SecendAcitvity ` 类的 Intent(意图)，并用 startActivity 来运行这个意图，启动第二个activity
@@ -310,7 +310,7 @@ Activity被实例化时，onCreate()方法被回调，在此方法中将Activity
 3. 在 App 的清单文件中注册这个 Activity。
 4. 创建一个 Intent 实例，调用 startActivity (intent)方法，即可启动并显示这个 Activity。
 
-![image.png](https://cdn.jsdelivr.net/gh/SunJianBai/pictures@main/img/202505052122989.png)
+![image.png](https://raw.githubusercontent.com/SunJianBai/pictures/main/img/202505052122989.png)
 
 Android Studio 提供了相应的模板（Empty Activity），可以把前面的过程自动化。
 
@@ -320,32 +320,32 @@ Android App 是“多入口点”的，同一应用中的每个 Activity 都可�
 
 用户点击 App 图标启动时显示的第一个 Activity 称为“启动 Activity”，它必须定义有以下<intent-filter>，如果有多个 Activity 都有这个<intentfilter>，则第一个 Activity 被当成是启动 Activity。
 
-![image.png](https://cdn.jsdelivr.net/gh/SunJianBai/pictures@main/img/202505052123526.png)
+![image.png](https://raw.githubusercontent.com/SunJianBai/pictures/main/img/202505052123526.png)
 
 ##  Activity 之间的信息传递
 
-![image-20250505212656533](https://cdn.jsdelivr.net/gh/SunJianBai/pictures@main/img/202505052126592.png)
+![image-20250505212656533](https://raw.githubusercontent.com/SunJianBai/pictures/main/img/202505052126592.png)
 
 ### 可以保存到Bundle中的信息
 
 如果是离散的基础数据类型（比如Int和String）信息，直接用putXXX系列方法存入：
 
-![image-20250505212754784](https://cdn.jsdelivr.net/gh/SunJianBai/pictures@main/img/202505052127825.png)
+![image-20250505212754784](https://raw.githubusercontent.com/SunJianBai/pictures/main/img/202505052127825.png)
 
 如果是一个对象，需要进行特殊的处理，让其实现Parcelable接口，并附加@Parcelize注解……
 
-<img src="https://cdn.jsdelivr.net/gh/SunJianBai/pictures@main/img/202505052128437.png" alt="image-20250505212815405" style="zoom: 80%;" />                 <img src="https://cdn.jsdelivr.net/gh/SunJianBai/pictures@main/img/202505052128478.png" alt="image-20250505212820417" style="zoom: 80%;" />
+<img src="https://raw.githubusercontent.com/SunJianBai/pictures/main/img/202505052128437.png" alt="image-20250505212815405" style="zoom: 80%;" />                 <img src="https://raw.githubusercontent.com/SunJianBai/pictures/main/img/202505052128478.png" alt="image-20250505212820417" style="zoom: 80%;" />
 
 
 
 ### 使用Intent 对象传输
 
-Activity之间的数据传送由Intent对象负责，它提供了putXXX系列方法实现信息的传送：![image-20250506143554313](https://cdn.jsdelivr.net/gh/SunJianBai/pictures@main/img/202505061435374.png)
+Activity之间的数据传送由Intent对象负责，它提供了putXXX系列方法实现信息的传送：![image-20250506143554313](https://raw.githubusercontent.com/SunJianBai/pictures/main/img/202505061435374.png)
 
 
 
 在新Activity接收外界传入的数据
-![image-20250506161851840](https://cdn.jsdelivr.net/gh/SunJianBai/pictures@main/img/202505061618950.png)
+![image-20250506161851840](https://raw.githubusercontent.com/SunJianBai/pictures/main/img/202505061618950.png)
 
 >putXXX(): 放数据
 >getXXX()：取数据

@@ -71,7 +71,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 291.5
+    "width": 262.5
   },
   "right": {
     "id": "2ec678cf7e211286",
@@ -88,13 +88,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "设计模式/设计模式 - 目录.md",
+                "file": "数据库/数据库课程笔记.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "设计模式 - 目录 的大纲"
+              "title": "数据库课程笔记 的大纲"
             }
           },
           {
@@ -141,8 +141,7 @@
               "title": "Source Control"
             }
           }
-        ],
-        "currentTab": 4
+        ]
       },
       {
         "id": "643ae1aa261f0f1f",
@@ -233,7 +232,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 360.5
+    "width": 360.5,
+    "collapsed": true
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -251,8 +251,9 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "02b701b92ede968b",
+  "active": "a25cba79b36869a8",
   "lastOpenFiles": [
+    "设计模式/设计模式 - 目录.md",
     "数据库/数据库课程笔记.md",
     "数据库/数据库系统原理.md",
     "数据库/SQL.md",
@@ -280,7 +281,6 @@
     "计算机网络/浅析dubbo服务.md",
     "计算机网络/SSH原理与应用.md",
     "Android/ReactNative相关/短信验证码倒计时控件.md",
-    "Android/ReactNative相关/Touchable系列组建讲解.md",
     "Android/ReactNative相关",
     "语言/Java/黑马讲义/day13-单元测试、反射、注解、动态代理/assets/1669622605490.png",
     "语言/Java/黑马讲义/day13-单元测试、反射、注解、动态代理/assets/1669622545712.png",
